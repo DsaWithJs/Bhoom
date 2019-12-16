@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="1000verbs.js"></script>
+
+<style>
+.mainDiv{
+width:22em;
+height:10em;
+border:1px solid green;
+font-size:40px;
+margin:0 auto;
+text-align:center;
+
+}
+.secondDiv{
+width:10em;
+float:left;
+}
+.firstDiv{
+width:10em;
+height:10em;
+border:1px solid green;
+float:left;
+}
+#one,#fone{
+width:100%;
+height:3em;
+display:block;
+}
+#two{
+width:96%;
+height:3em;
+display:block;
+font-size:20px;
+}
+#three{
+width:96%;
+height:3em;
+display:block;
+font-size:20px;
+}
+#four{
+width:96%;
+height:3em;
+display:block;
+
+}
+#five{
+width:40%;
+height:3em;
+display:inline-block;
+text-align:left;
+}
+#six{
+width:40%;
+height:3em;
+display:inline-block;
+text-align:right;
+}
+</style>
+</head>
+
+<body>
+<div class="mainDiv">
+<div class="firstDiv">
+<span  id="fone"></span>
+</div>
+<div class="secondDiv">
+<span  id="one"></span>
+<input type="text" id="two" name="firstname">
+<input type="text" id="three" name="firstname">
+<button id="four" onclick="verify();">Click</button>
+<span  id="five"></span><span  id="six"></span>
+</div>
+</div>
+
+
+</body>
+<script>
+var data=["I", "me", "mine", "myself", "we", "us", "ours", "ourselves","You", "yours", "yourself", "yourselves","he", "she", "it", "him", "her", "his", "hers", "himself", "herself", "itself", "they", "them", "theirs", "themselves"];
+ var data;
+ var count=0;
+ var random = Math.floor(Math.random() * 67) + 1;
+ data = data44[count];
+ $("#one").text(data[0]);
+
+ $("#two").focus();
+ setInterval(function () {
+ count++;
+ $("#fone").text(count);
+ 	var random = Math.floor(Math.random() * 67) + 1;
+ 	data = data44[count];
+ 	$("#one").text(data[0]);
+ 	clearAll();
+ }, 5000);
+	
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        verify();
+    }
+});
+
+function clearAll() {
+	$("#two").val("");
+	$("#three").val("");
+	$("#two").focus();
+	$("#five").text("");
+	$("#six").text("");
+
+}
+function verify() {
+	var value1 = $("#two").val();
+	var value2 = $("#three").val();
+	var success1,
+	success2;
+
+	if (value1 == "" && value2 == "") {
+
+		$("#five").text(data[1]);
+		$("#six").text(data[2]);
+		return;
+	}
+
+	if (data[1] == value1) {
+		success1 = "one \t";
+	} else
+		success1 = "fail \t";
+
+	if (data[2] == value2) {
+		success2 = "two";
+	} else
+		success2 = "fail \t";
+
+	$("#five").text(success1);
+	$("#six").text(success2);
+
+}
+
+
+</script>
+</html>

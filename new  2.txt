@@ -1,0 +1,6 @@
+how to use html or jade templates
+passport.js
+How do I setup a SSL certs for an express.js server?
+What do “module.exports” and “exports.methods” mean in NodeJS / Express?
+What is the purpose of Node.js module.exports and how do you use it?
+Express.js View “globals”,app.locals.version = 3;

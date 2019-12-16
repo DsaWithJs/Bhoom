@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="onin.js"></script>
+
+<style>
+.mainDiv{
+width:32em;
+height:11em;
+border:1px solid green;
+font-size:40px;
+margin:0 auto;
+text-align:center;
+
+}
+.secondDiv{
+width:20em;
+float:left;
+}
+.firstDiv{
+width:10em;
+height:11em;
+border:1px solid green;
+float:left;
+}
+#one{
+width:100%;
+height:3em;
+display:block;
+margin: 2em;
+text-align: start;
+}
+#fone,#fone1{
+width:100%;
+height:3em;
+display:block;
+margin-top: 1em;
+}
+#two{
+width:96%;
+height:3em;
+display:block;
+font-size:20px;
+}
+#three{
+width:96%;
+height:3em;
+display:block;
+font-size:20px;
+}
+#four{
+width:96%;
+height:3em;
+display:block;
+
+}
+#five{
+width:40%;
+height:3em;
+display:inline-block;
+text-align:left;
+}
+#six{
+width:40%;
+height:3em;
+display:inline-block;
+text-align:right;
+}
+</style>
+</head>
+
+<body>
+<div class="mainDiv">
+<div class="firstDiv">27963
+<span  id="fone"></span>
+<span  id="fone1"></span>
+<span  id="five" style="text-align:center;"></span>
+</div>
+<div class="secondDiv">
+<span  id="one"></span>
+
+<button id="four" onclick="verify('on');">on</button>
+<button id="four" onclick="verify('in');">in</button>
+<button id="four" onclick="next();">Next</button>
+<span  id="six"></span>
+</div>
+</div>
+
+
+</body>
+<script>
+var data=["I", "me", "mine", "myself", "we", "us", "ours", "ourselves","You", "yours", "yourself", "yourselves","he", "she", "it", "him", "her", "his", "hers", "himself", "herself", "itself", "they", "them", "theirs", "themselves"];
+ var data;
+ var count=0,success=0;
+ var random = Math.floor(Math.random() * 67) + 1;
+ var failed="";
+ data = data44[count];
+ data=data.split("###");
+ $("#one").text(data[0]);
+ $("#fone").text(count);
+ $("#two").focus();
+ setInterval(function () {
+ count++;
+ $("#fone").text(count);
+ 	var random = Math.floor(Math.random() * 67) + 1;
+	data = data44[count];
+ 	data=data.split("###");
+    $("#one").text(data[0]);
+ 	clearAll();
+ }, 5000000000000000000000000);
+	
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        verify();
+    }
+});
+function next(){
+ var data;
+ 
+for(;;){
+data=only();
+if(data[1].trim()=="on")
+break;
+} 
+
+ $("#one").text(data[0]);
+ 	clearAll();
+	
+	$("#fone").text(count);
+	$("#two").focus();
+}
+
+function only(){
+    count++;
+	data = data44[count];
+ 	data=data.split("###");
+	
+	
+    return data;
+
+}
+function clearAll() {
+	$("#two").val("");
+	$("#three").val("");
+	$("#two").focus();
+	$("#five").text("");
+	$("#six").text("");
+
+}
+function verify(id) {
+	
+var success1,success2;
+	if (data[1].trim() == id) {
+		success1 = "YES";
+		success++;
+	} else{
+		success1 = "Fail \t";
+   failed=failed+","+(count+1);
+   console.clear();
+   console.log(failed);
+   }
+   $("#fone1").text(success);
+	$("#five").text(success1);
+	//$("#six").text(failed);
+
+}
+
+
+</script>
+</html>

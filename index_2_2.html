@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="all.js"></script>
+
+<style>
+.mainDiv{
+width:32em;
+height:11em;
+border:1px solid green;
+font-size:40px;
+margin:0 auto;
+text-align:center;
+
+}
+.secondDiv{
+width:20em;
+float:left;
+}
+.firstDiv{
+width:10em;
+height:11em;
+border:1px solid green;
+float:left;
+}
+#one{
+width:100%;
+height:3em;
+display:block;
+margin: 2em;
+text-align: start;
+}
+#fone,#fone1{
+width:100%;
+height:3em;
+display:block;
+margin-top: 1em;
+}
+#two{
+width:96%;
+height:3em;
+display:block;
+font-size:20px;
+}
+#three{
+width:96%;
+height:3em;
+display:block;
+font-size:20px;
+}
+#four{
+width:96%;
+height:3em;
+display:block;
+
+}
+#five{
+width:40%;
+height:3em;
+display:inline-block;
+text-align:left;
+}
+#six{
+width:40%;
+height:3em;
+display:inline-block;
+text-align:right;
+}
+</style>
+</head>
+
+<body>
+<div class="mainDiv">
+<div class="firstDiv">246892
+<span  id="fone"></span>
+<span  id="fone1"></span>
+<span  id="five" style="text-align:center;"></span>
+</div>
+<div class="secondDiv">
+<span  id="one"></span>
+
+<button id="four" onclick="verify('on');">on</button>
+<button id="four" onclick="verify('in');">in</button>
+<button id="four" onclick="next();">Next</button>
+<span  id="six"></span>
+</div>
+</div>
+<textarea rows="4" cols="50" style="width:100%;height:30em;">
+1.passive form.
+2.model verb + noun
+3.model verb + verb3rd form.
+4.model verb + verb ing form.
+
+5.to be 
+
+1.should have- good to have(but not happened)
+2.might have -don't know what happned
+3.possibility,I think
+</textarea>
+
+</body>
+<script>
+console.log("...");
+ var data;
+ var count=0,success=0;
+ var failed="";
+ var items=["about","above","according","to","across","after","against","along","along","with","among","apart","from","around","as","as","for","at","because","of","before","behind","below","beneath","beside","between","beyond","but*","by","by","means","of","concerning","despite","down","during","except","except","for","excepting","for","from","in","in","addition","to","in","back","of","in","case","of","in","front","of","in","place","of","inside","in","spite","of","instead","of","into","like","near","next","of","off","on","onto","on","top","of","out","out","of","outside","over","past","regarding","round","since","through","throughout","till","to","toward","under","underneath","unlike","until","up","upon","up","to","with","within","without"];
+//to,be,to be,of,by,to do,
+ items=["should have","could have","would have","might have"];
+ var item,item1="",got=false;
+function next(){
+ var data;
+ 
+main:for(;;){
+data=only();
+got=false;
+item1="";
+for(var id in items){
+item=items[id];
+item=" "+item+" ";
+if(data.indexOf(item)>=0){
+
+data=data.replace(item," **/** ");
+    got=true;
+item1=item1+item+",";
+	 }
+	 } 
+if(got)
+ break main;
+}
+
+
+   $("#one").text(data);
+ 	clearAll();
+	$("#fone1").text(item1);
+	$("#fone").text(count);
+	$("#two").focus();
+}
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        next();
+    }
+});
+function only(){
+    count++;
+	data = data44[count];
+    return data;
+
+}
+function clearAll() {
+	$("#two").val("");
+	$("#three").val("");
+	$("#two").focus();
+	$("#five").text("");
+	$("#six").text("");
+
+}
+function verify(id) {
+	
+var success1,success2;
+	if (data[1].trim() == id) {
+		success1 = "YES";
+		success++;
+	} else{
+		success1 = "Fail \t";
+   failed=failed+","+(count+1);
+   console.clear();
+   console.log(failed);
+   }
+   $("#fone1").text(success);
+	$("#five").text(success1);
+	//$("#six").text(failed);
+
+}
+
+
+</script>
+</html>
